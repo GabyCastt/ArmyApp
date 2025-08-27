@@ -1,0 +1,7 @@
+{
+  "name": "ArmyApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
