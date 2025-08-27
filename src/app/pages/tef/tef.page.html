@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="white">
+    <ion-title>
+      <ion-icon name="flower" slot="start"></ion-icon>
+      Espacio de Teff 𐔌՞꜆.  ̫.꜀՞𐦯
+      <ion-icon name="flower" slot="end"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="tef" [class]="'game-' + currentGame">
+  <!-- Juego 1: Adivina la palabra -->
+  <div *ngIf="currentGame === 1" class="game-section">
+    <h2>Adivina la palabra ✨</h2>
+    <p>Encuentra la palabra secreta relacionada con BTS</p>
+
+    <h3 class="word-display">{{ guessedWord.join(' ') }}</h3>
+    <p>Errores: {{wrongGuesses}} / {{maxWrong}}</p>
+
+    <div class="letters-grid">
+      <ion-button
+        *ngFor="let l of letters"
+        size="small"
+        (click)="guessLetter(l)"
+      >
+        {{l}}
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Juego 2: Rompecabezas -->
+  <div *ngIf="currentGame === 2" class="game-section">
+    <h2>Rompecabezas 🌸</h2>
+    <p>Ordena las piezas para completar la imagen</p>
+
+    <div class="puzzle">
+      <div
+        class="piece"
+        *ngFor="let piece of pieces; let i = index"
+        [style.backgroundImage]="'url(' + piece.img + ')'"
+        [style.backgroundPosition]="piece.backgroundPosition"
+        draggable="true"
+        (dragstart)="onDragStart($event, i)"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event, i)"
+      ></div>
+    </div>
+    <div class="puzzle-buttons">
+      <ion-button expand="block" color="primary" (click)="shufflePuzzle()">
+         Mezclar
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        color="success"
+        (click)="checkPuzzleComplete()"
+      >
+        Comprobar
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Juego 3: Memoria -->
+  <div *ngIf="currentGame === 3" class="game-section">
+    <h2>Juego de Memoria 💫</h2>
+    <p>Encuentra todas las parejas de iconos</p>
+
+    <div class="memory-game">
+      <div
+        class="memory-card"
+        *ngFor="let card of cardIcons; let i = index"
+        [class.flipped]="cardFlipped[i]"
+        (click)="flipCard(i)"
+      >
+        <div class="card-front">
+          <ion-icon name="flower"></ion-icon>
+        </div>
+        <div class="card-back">
+          <ion-icon [name]="card"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <p class="progress-text">
+      Parejas encontradas: {{matchedPairs}}/{{cardIcons.length / 2}}
+    </p>
+  </div>
+
+  <!-- Finalización -->
+  <div *ngIf="currentGame === 4" class="completion-section">
+    <div class="trophy-animation">
+      <ion-icon name="trophy"></ion-icon>
+    </div>
+    <h2>¡Felicidades! 🎉</h2>
+    <p>Has completado todos los juegos</p>
+
+    <ion-button expand="block" color="secondary" (click)="restartGames()">
+      Jugar de Nuevo
+    </ion-button>
+  </div>
+
+  <!-- Botón de música -->
+  <ion-button
+    expand="block"
+    color="super-neutro"
+    href="https://youtu.be/xd9Jc7Yk8c4?si=nD741XheIUNYMb1Q"
+    target="_blank"
+    class="music-button"
+  >
+    <ion-icon  slot="start"></ion-icon>
+    𓆝 𓆟 𓆞 Escucha a Jinnie 𓆝 𓆟 𓆟
+  </ion-button>
+</ion-content>

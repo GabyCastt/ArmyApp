@@ -1,20 +1,96 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      <div class="title-container">
+        <ion-icon></ion-icon>
+        Armyguitas
+        <ion-icon ></ion-icon>
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding home-content">
+  <!-- Carrusel de fotos mejorado -->
+  <div class="carousel-container">
+    <div class="custom-slides">
+      <div class="slide-content">
+        <img src="assets/bitibiti.jpg" alt="BTS 1" class="slide-image" />
+        <div class="slide-overlay">
+          <h3>BTS World</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- Título con diseño mejorado -->
+  <div class="title-section">
+    <h2 class="main-title">Por Gaby</h2>
+    <p class="subtitle">Pequeños juegos que creo les gustarán</p>
+  </div>
+
+  <!-- Botones florales personalizados -->
+  <div class="flowers-container">
+    <!-- Liss - Lirio del Valle -->
+    <div class="flower-card liss-theme" (click)="goTo('liss')">
+      <div class="flower-image">
+        <img src="assets/flores/lili.png" alt="Lirio del Valle" class="flower-img" />
+        <div class="bias-indicator">
+          <ion-icon name="star"></ion-icon> Jungkook
+        </div>
+      </div>
+      <div class="flower-info">
+        <h3>Liss</h3>
+        <p>Lirios del Valle</p>
+        <div class="color-palette">
+          <span class="color-dot black"></span>
+          <span class="color-dot blue"></span>
+          <span class="color-dot white"></span>
+          <span class="color-dot burgundy"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tef - Margarita -->
+    <div class="flower-card tef-theme" (click)="goTo('tef')">
+      <div class="flower-image">
+        <img src="assets/flores/marii.png" alt="Margarita" class="flower-img" />
+        <div class="bias-indicator">
+          <ion-icon name="star"></ion-icon> Hobi & Jin
+        </div>
+      </div>
+      <div class="flower-info">
+        <h3>Tef</h3>
+        <p>Margaritas</p>
+        <div class="color-palette">
+          <span class="color-dot purple"></span>
+          <span class="color-dot lightblue"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daff - Tulipán -->
+    <div class="flower-card daff-theme" (click)="goTo('daff')">
+      <div class="flower-image">
+        <img src="assets/flores/tulili.png" alt="Tulipán" class="flower-img" />
+        <div class="bias-indicator">
+          <ion-icon name="star"></ion-icon> Tae & Jungkook
+        </div>
+      </div>
+      <div class="flower-info">
+        <h3>Daff</h3>
+        <p>Tulipanes</p>
+        <div class="color-palette">
+          <span class="color-dot black"></span>
+          <span class="color-dot white"></span>
+          <span class="color-dot purple"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer temático -->
+  <div class="footer-section">
+    <p>💜 BTS • 방탄소년단 • Beyond The Scene 💜</p>
   </div>
 </ion-content>

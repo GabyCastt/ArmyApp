@@ -10,4 +10,16 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'tef',
+    loadComponent: () => import('./pages/tef/tef.page').then( m => m.TefPage)
+  },
+  {
+    path: 'liss',
+    loadComponent: () => import('./pages/liss/liss.page').then( m => m.LissPage)
+  },
+  {
+    path: 'daff',
+    loadComponent: () => import('./pages/daff/daff.page').then( m => m.DaffPage)
+  },
 ];

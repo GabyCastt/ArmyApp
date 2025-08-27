@@ -1,2 +1,6 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+  --ion-color-super-neutro: #635858;      // fondo neutro
+  --ion-color-super-neutro-contrast: #ffffff; // texto que contraste
+  --ion-color-super-neutro-shade: #333333;    // sombra si aplica
+  --ion-color-super-neutro-tint: #4a4a4a;     // efecto hover/activo
+}
