@@ -47,7 +47,7 @@
     </div>
     <div class="puzzle-buttons">
       <ion-button expand="block" color="primary" (click)="shufflePuzzle()">
-         Mezclar
+        Mezclar
       </ion-button>
 
       <ion-button
@@ -56,6 +56,16 @@
         (click)="checkPuzzleComplete()"
       >
         Comprobar
+      </ion-button>
+    </div>
+    <div class="skip-buttons">
+      <ion-button fill="clear" color="medium" (click)="skipGame()">
+        <ion-icon name="arrow-forward" slot="start"></ion-icon>
+        Saltar este juego
+      </ion-button>
+      <ion-button fill="clear" color="medium" (click)="skipToEnd()">
+        <ion-icon name="trophy" slot="start"></ion-icon>
+        Saltar al final
       </ion-button>
     </div>
   </div>
@@ -107,7 +117,7 @@
     target="_blank"
     class="music-button"
   >
-    <ion-icon  slot="start"></ion-icon>
+    <ion-icon slot="start"></ion-icon>
     𓆝 𓆟 𓆞 Escucha a Jinnie 𓆝 𓆟 𓆟
   </ion-button>
 </ion-content>

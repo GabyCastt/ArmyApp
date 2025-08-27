@@ -12,7 +12,14 @@ import {
   AlertController,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { flower, musicalNotes, trophy, heart, star } from 'ionicons/icons';
+import {
+  flower,
+  musicalNotes,
+  trophy,
+  heart,
+  star,
+  arrowForward,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-daff',
@@ -44,11 +51,7 @@ export class DaffPage implements OnInit {
   letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
 
   // ===== Juego 2: Rompecabezas =====
-  puzzleImages = [
-    'assets/ckoo.jpg',
-    'assets/daff2.jpg',
-    'assets/skoo.jpg',
-  ];
+  puzzleImages = ['assets/ckoo.jpg', 'assets/daff2.jpg', 'assets/skoo.jpg'];
   currentPuzzleImg: string = '';
   currentPuzzleIndex: number = 0;
 
@@ -62,7 +65,7 @@ export class DaffPage implements OnInit {
     private toastCtrl: ToastController,
     private alertCtrl: AlertController
   ) {
-    addIcons({ flower, musicalNotes, trophy, heart, star });
+    addIcons({ flower, musicalNotes, trophy, heart, star, arrowForward });
     this.createPuzzle();
   }
 
@@ -70,7 +73,29 @@ export class DaffPage implements OnInit {
     this.startWordGame();
     this.shuffleCards();
   }
+  skipGame() {
+    if (this.currentGame === 1) {
+      // Saltar al juego 2 (rompecabezas)
+      this.currentGame = 2;
+      this.currentPuzzleIndex = 0;
+      this.currentPuzzleImg = this.puzzleImages[this.currentPuzzleIndex];
+      this.createPuzzle(this.currentPuzzleImg);
+      this.showToast('Saltado al rompecabezas', 'primary');
+    } else if (this.currentGame === 2) {
+      // Saltar al juego 3 (memoria)
+      this.currentGame = 3;
+      this.shuffleCards();
+      this.showToast('Saltado al juego de memoria', 'primary');
+    } else if (this.currentGame === 3) {
+      // Saltar al final
+      this.skipToEnd();
+    }
+  }
 
+  skipToEnd() {
+    this.currentGame = 4;
+    this.showToast('¡Has llegado al final!', 'success');
+  }
   // ===== Juego 1: Adivina la Palabra =====
   startWordGame() {
     this.currentWord =

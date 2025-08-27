@@ -227,3 +227,22 @@
     .card-back { background: #a78ccf; }
   }
 }
+/* Estilos para botones de saltar */
+.skip-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skip-buttons ion-button {
+  font-size: 14px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .skip-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
